@@ -176,6 +176,9 @@ class ModelArguments:
         default="nf4", metadata={"help": "precise the quantization type (fp4 or nf4)"}
     )
     use_bnb_nested_quant: bool = field(default=False, metadata={"help": "use nested quantization"})
+    cache_dir: Optional[str] = field(
+        default=None, metadata={"help": "Path to a cache directory to overwrite the standard ~/.cache/huggingface"}
+    )
 
     def __post_init__(self):
         if self.load_in_8bit and self.load_in_4bit:

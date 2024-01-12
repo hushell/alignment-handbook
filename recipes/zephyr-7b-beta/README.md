@@ -12,7 +12,7 @@ See below for commands to train these models using either DeepSpeed ZeRO-3 or Lo
 
 ## Full training examples
 
-You will require 4/8 GPUs (80GB of VRAM) to train the full model.
+You will require 4/8 GPUs (80GB of VRAM) to train the full model. 
 ```shell
 # Step 1 - SFT (19s/it with 4xA100s)
 WANDB_ENTITY=xxx WANDB_PROJECT=yyy ACCELERATE_LOG_LEVEL=info accelerate launch --config_file recipes/accelerate_configs/ds2_config.yaml scripts/run_sft.py recipes/zephyr-7b-beta/sft/config_full.yaml
@@ -20,6 +20,8 @@ WANDB_ENTITY=xxx WANDB_PROJECT=yyy ACCELERATE_LOG_LEVEL=info accelerate launch -
 # Step 2 - DPO (20s/it with 4xA100s, NOTE: ds2 -> OOM)
 WANDB_ENTITY=xxx WANDB_PROJECT=yyy ACCELERATE_LOG_LEVEL=info accelerate launch --config_file recipes/accelerate_configs/deepspeed_zero3.yaml scripts/run_dpo.py recipes/zephyr-7b-beta/dpo/config_full.yaml
 ```
+
+If you have a central directory to store models and datasets (e.g., `saic-llm-2023/cache`), just append `--cache_dir /path/to/cache/dir` in the above commands.
 
 ## QLoRA training examples
 

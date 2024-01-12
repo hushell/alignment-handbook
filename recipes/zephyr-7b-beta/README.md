@@ -17,8 +17,8 @@ You will require 4/8 GPUs (80GB of VRAM) to train the full model.
 # Step 1 - SFT (19s/it with 4xA100s)
 WANDB_ENTITY=xxx WANDB_PROJECT=yyy ACCELERATE_LOG_LEVEL=info accelerate launch --config_file recipes/accelerate_configs/ds2_config.yaml scripts/run_sft.py recipes/zephyr-7b-beta/sft/config_full.yaml
 
-# Step 2 - DPO
-ACCELERATE_LOG_LEVEL=info accelerate launch --config_file recipes/accelerate_configs/deepspeed_zero3.yaml scripts/run_dpo.py recipes/zephyr-7b-beta/dpo/config_full.yaml
+# Step 2 - DPO (20s/it with 4xA100s, NOTE: ds2 -> OOM)
+WANDB_ENTITY=xxx WANDB_PROJECT=yyy ACCELERATE_LOG_LEVEL=info accelerate launch --config_file recipes/accelerate_configs/deepspeed_zero3.yaml scripts/run_dpo.py recipes/zephyr-7b-beta/dpo/config_full.yaml
 ```
 
 ## QLoRA training examples

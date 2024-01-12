@@ -9,7 +9,7 @@ dataset_mixer:
 dataset_splits:
 - train_prefs
 - test_prefs
-preprocessing_num_workers: 12
+preprocessing_num_workers: 24
 
 # DPOTrainer arguments
 bf16: true
@@ -21,7 +21,7 @@ gradient_accumulation_steps: 2
 gradient_checkpointing: true
 gradient_checkpointing_kwargs:
   use_reentrant: False
-hub_model_id: zephyr-7b-dpo-full
+hub_model_id: ondevicellm/zephyr-7b-dpo-full
 learning_rate: 5.0e-7
 log_level: info
 logging_steps: 10
@@ -36,6 +36,6 @@ per_device_eval_batch_size: 8
 push_to_hub: true
 save_strategy: "steps"
 save_steps: 100
-save_total_limit: 1
+save_total_limit: 2
 seed: 42
 warmup_ratio: 0.1

@@ -55,7 +55,7 @@ The initial release of the handbook will focus on the following techniques:
 To run the code in this project, first, create a Python virtual environment using e.g. Conda:
 
 ```shell
-conda create -n handbook python=3.10 && conda activate handbook
+conda create -n handbook python=3.11.5 && conda activate handbook
 ```
 
 Next, install PyTorch `v2.1.2` - the precise version is important for reproducibility! Since this is hardware-dependent, we
@@ -72,7 +72,7 @@ python -m pip install .
 You will also need Flash Attention 2 installed, which can be done by running:
 
 ```shell
-python -m pip install flash-attn==2.3.6 --no-build-isolation
+python -m pip install flash-attn==2.4.2 --no-build-isolation
 ```
 
 > **Note**

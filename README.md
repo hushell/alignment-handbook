@@ -72,7 +72,8 @@ python -m pip install .
 You will also need Flash Attention 2 installed, which can be done by running:
 
 ```shell
-python -m pip install flash-attn==2.4.2 --no-build-isolation
+pip install flash-attn==2.4.2 --no-build-isolation
+pip install wandb
 ```
 
 > **Note**
@@ -88,6 +89,7 @@ Finally, install Git LFS so that you can push models to the Hugging Face Hub:
 
 ```shell
 sudo apt-get install git-lfs
+git lfs install
 ```
 
 You can now check out the `scripts` and `recipes` directories for instructions on how to train some models 🪁!

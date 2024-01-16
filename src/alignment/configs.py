@@ -210,7 +210,21 @@ class DataArguments:
 
 
 @dataclass
-class SFTConfig(transformers.TrainingArguments):
+class TrainConfig(transformers.TrainingArguments):
+    """
+    """
+    load_best_model_at_end: bool = field(
+        default=True,
+        metadata={"help": ("To enable saving best model and load best model at the end.")},
+    )
+    save_total_limit: Optional[int] = field(
+        default=1,
+        metadata={"help": "Number of ckpts to be saved besides the best model."},
+    )
+
+
+@dataclass
+class SFTConfig(TrainConfig):
     """
     Arguments related to the training process itself. For all parameters, see: https://huggingface.co/docs/transformers/v4.26.1/en/main_classes/trainer#transformers.TrainingArguments
     """
@@ -227,7 +241,7 @@ class SFTConfig(transformers.TrainingArguments):
 
 
 @dataclass
-class DPOConfig(transformers.TrainingArguments):
+class DPOConfig(TrainConfig):
     """
     Arguments related to the DPO training process itself. For all parameters, see: https://huggingface.co/docs/transformers/v4.26.1/en/main_classes/trainer#transformers.TrainingArguments
     """
